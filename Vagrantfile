@@ -17,14 +17,14 @@ Vagrant.configure("2") do |config|
   config.vm.network "forwarded_port", guest: 80, host: 8080, auto_correct: true
   config.vm.network "forwarded_port", guest: 5000, host: 5050, auto_correct: true
   config.vm.provider :virtualbox do |vb|
-		vb.name = name
+    vb.name = name
     # Uncomment to enable GUI console.
     #vb.gui = "true"
     # Uncomment to disable hardware virt.
     #vb.customize ["modifyvm", :id, "--hwvirtex", "off"]
-    end
+  end
 
-	config.trigger.before :up do
+  config.trigger.before :up do
     info "Setting Virtualbox default machine directory to /tmp..."
     run "VBoxManage setproperty machinefolder /tmp"
     home = ENV['VAGRANT_HOME']
@@ -58,4 +58,3 @@ Vagrant.configure("2") do |config|
   end
 
 end
-
