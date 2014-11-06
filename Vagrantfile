@@ -1,7 +1,7 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby tabstop=2 :
-box_ver = "2014-10-08"
-box_url = "https://sw.cs.wwu.edu/~griffi21/Vagrant/Boxes/wwu-devops-#{box_ver}.box"
+box_ver = "2014-11-06"
+box_url = "https://sw.cs.wwu.edu/~longb4/Vagrant/Boxes/wwu-devops-#{box_ver}.box"
 name = "wwu-devops-#{box_ver}"
 dir = "wwu-devops"
 
@@ -11,7 +11,7 @@ end
 
 Vagrant.configure("2") do |config|
   # Every Vagrant virtual environment requires a box to build off of.
-  config.vm.box       = "debian-7.6-#{box_ver}"
+  config.vm.box       = "debian-7.7-#{box_ver}"
   config.vm.hostname  = "wwu-devops"
   config.vm.box_url   = "#{box_url}"
   config.vm.network "forwarded_port", guest: 80, host: 8080, auto_correct: true
