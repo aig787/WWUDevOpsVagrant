@@ -34,12 +34,12 @@ Vagrant.configure("2") do |config|
       exit
     end
     confirm = nil
-    if Dir.exists?(ENV["HOME"] + dir + name)  
+    if Dir.exists?("#{ENV['HOME']}/#{dir}/#{name}")  
       until ["Y", "y", "N", "n"].include?(confirm)
         confirm = ask "Would you like to move #{ENV['HOME']}/#{dir}/#{name} to tmp? (Y/n) "
       end
       if confirm.upcase == "Y" 
-       run "rsync -aP #{ENV['HOME']}#{dir}#{name} /tmp/#{name}"
+       run "rsync -aP #{ENV['HOME']}/#{dir}/#{name} /tmp/#{name}"
       end
     end
   end
@@ -53,7 +53,7 @@ Vagrant.configure("2") do |config|
       if not Dir.exists?("#{ENV['HOME']}/#{dir}")
         Dir.mkdir("#{ENV['HOME']}/#{dir}")
       end
-      run "rsync -aP /tmp/#{name} #{ENV['HOME']}/#{dir}#{name}"
+      run "rsync -aP /tmp/#{name} #{ENV['HOME']}/#{dir}/#{name}"
     end
   end
 
